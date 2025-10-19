@@ -3,6 +3,10 @@ package opgave02;
 import java.util.Scanner;
 
 public class Craps {
+        // Feedback: kommentarer der gentager havd koden siger er bidrager ikke til
+        // bedre at forstå koden. Hvis man føler at der er behov for at lave kommentarer
+        // kan det være tegn på navngivningen at ens variabler og metoder ikke er helt god.
+        // Her kunne man have navngivet variablerne tabteSpil og vundneSpil.
         public static int tabte = 0; // gemmer værdien af tabte spil
         public static int vundne = 0; // gemmer værdien af vundne spil
 
@@ -25,6 +29,8 @@ public class Craps {
             int[] faces = rolledDice(2);// gemmer resultatet fra rolledDice i variablen faces
             int sum = faces[0] + faces[1]; // gemmer værdien af de 2 terninger
             printNumbers(faces); // printer værdierne af de to terninger
+            // Feedbck: Logikken for at vinde/tabe er gentaget i rollforPoint.
+            // Denne logik kunne centraliseres her i playCraps for at undgå gentagelse.
             if (sum == 7 || sum == 11) {
                 System.out.println("du slog: " + sum + " Du vandt!");
                 vundne++;
@@ -32,6 +38,8 @@ public class Craps {
                 System.out.println("Du slog " + sum + " Du tabte..");
                 tabte++;
             } else {
+                // Feedback: Programmet fortæller ikke brugeren, hvad deres "point" er.
+                // En besked som "Dit point er X" ville gøre spillet tydeligere.
                 rollforPoint(sum);
             }
             System.out.print("Spil craps? ('ja/nej') ");
@@ -42,6 +50,9 @@ public class Craps {
         scanner.close();
     }
 
+    // Feedback: Logikken for at vinde og tabe (udskrivning af besked og forøgelse af score)
+    // findes også i playCraps. For at undgå gentagelse kunne denne metode blot
+    // returnere true for en sejr og false for et tab, og lade playCraps håndtere resten.
     public static boolean rollforPoint(int point) {
         while (true) { //gentage dette loop indtil sum = point eller sum = 7
             int[] faces = rolledDice(2); // spiller slår terninger igen

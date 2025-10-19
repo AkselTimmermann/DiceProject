@@ -89,6 +89,11 @@ public class Pigs {
         System.out.println();
     }
 
+    // Feedback: Potentiel fejl ved division med nul.
+    // Hvis en spiller aldrig får en tur (f.eks. hvis spiller 1 vinder i sin allerførste tur),
+    // vil `ture[i]` for den anden spiller være 0.
+    // Beregningen `slag[i] / ture[i]` vil da resultere i en exception.
+    // Dette kan rettes ved at tilføje et tjek, der sikrer, at `ture[i]` er større end 0.
     public static void statistics() {
         double[] gennemsnit = new double[2];
         for (int i = 0; i < gennemsnit.length; i++) {

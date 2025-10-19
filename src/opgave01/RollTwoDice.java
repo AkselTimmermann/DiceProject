@@ -2,6 +2,8 @@ package opgave01;
 
 import java.util.Scanner;
 
+
+// Rigtigt fint, ingen yderlig kommentar
 public class RollTwoDice {
     private static int rollCount = 0;
     private static int sum = 0; // Summen af terningekast
@@ -28,6 +30,8 @@ public class RollTwoDice {
         System.out.println("=====================================================");
     }
 
+    // Metodenavne: Metoden playOneDie() er lidt misvisende, da spillet bruger to terninger. Et mere passende navn
+    // kunne være playTwoDice() eller bare playGame().
     private static void playOneDie() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Rul en terning? ('ja/nej') ");
@@ -51,6 +55,7 @@ public class RollTwoDice {
         return (int) (Math.random() * 6 + 1);
     }
 
+    // Rigtigt fint at I har generaliseret metoden til at kunne rulle x terninger.
     private static int[] rolledDice(int x) { // metode, der laver nyt array, som gemmer resultatet fra rolldie.
         int[] rolledDice = new int[x];
         for (int i = 0; i < x; i++) {
